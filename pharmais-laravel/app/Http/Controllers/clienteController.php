@@ -114,7 +114,7 @@ class ClienteController extends Controller {
 
 		$cliente->save();
 
-		return redirect()->route('cliente.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('clientes.index')->with('message', 'Item updated successfully.');
 	}
 
 	/**

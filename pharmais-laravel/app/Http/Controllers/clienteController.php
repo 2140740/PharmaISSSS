@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Validator;
 
 use App\Cliente;
 use Illuminate\Http\Request;
@@ -59,7 +60,7 @@ class ClienteController extends Controller {
 
 		$cliente->save();
 
-		return redirect()->route('cliente.index')->with('message', 'Item created successfully.');
+		return redirect()->route('clientes.index')->with('message', 'Item created successfully.');
 	}
 
 	/**
@@ -128,7 +129,7 @@ class ClienteController extends Controller {
 		$cliente = cliente::findOrFail($id);
 		$cliente->delete();
 
-		return redirect()->route('cliente.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('clientes.index')->with('message', 'Item deleted successfully.');
 	}
 
 }

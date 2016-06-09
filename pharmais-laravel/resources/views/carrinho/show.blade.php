@@ -3,7 +3,7 @@
 @section('header')
     <div class="page-header clearfix">
         <h1>
-            <i class="glyphicon glyphicon-align-justify"></i> Medicamentos
+            <i class="glyphicon glyphicon-align-justify"></i> Loja
         </h1>
 
     </div>
@@ -15,18 +15,12 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Lista de Medicamentos</div>
+                <div class="panel-heading">Carrinho</div>
 
                 <div class="panel-body">
                         <div class="row">
         <div class="col-md-12">
         <div>
-        <form>
-        <label>Pesquisar:</label>
-        <input type="text" id="idNome" name="nome" value="" class="form-control">
-        <br>
-        <input type="submit" id="idSubmit" value="Pesquisar" class="btn btn-primary">
-        </form>
         <br>
         </div>
             @if($medicamentos->count())
@@ -38,6 +32,7 @@
                         <th>Nome</th>
                         <th>Nome Genérico</th>
                         <th>Preço</th>
+                        <th>Quantidade</th>
                         <th></th>
                             <th></th>
                         </tr>
@@ -51,14 +46,14 @@
                                 <td>{{$medicamento->nome}}</td>
                                 <td>{{$medicamento->nome_generico}}</td>
                     <td>{{$medicamento->preco}}</td>
-                    <td class="text-center">
-                                    <a class="btn btn-xs btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">Adicionar ao Carrinho</a></td>
+                    
+                    <td>
+
                     <td></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
-                {!! $medicamentos->render() !!}
             @else
                 <h3 class="text-center alert alert-info">Empty!</h3>
             @endif

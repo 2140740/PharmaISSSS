@@ -30,3 +30,9 @@ Route::resource('clientes','clienteController');
 
 Route::get('users', ['as' => 'users.index',
 								'uses' => 'userController@index']);
+
+Route::get('addcarrinho/{id}',  ['as' => 'carrinho.add',
+								'uses' => 'CarrinhoController@addtocarrinho']);
+
+Route::get('carrinho',  ['as' => 'carrinho.show',
+								'uses' => 'CarrinhoController@show']);

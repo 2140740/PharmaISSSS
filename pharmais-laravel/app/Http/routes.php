@@ -15,13 +15,19 @@ Route::get('test', function () {
   return 'Testing a route';
 });
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
+
+
+
+Route::get('home',  ['as' => 'home.login',
+								'uses' => 'HomeController@index']);
+
 
 Route::get('');
 
@@ -47,3 +53,8 @@ Route::get('LimparLinhaCarrinho/{id}',  ['as' => 'carrinho.remove',
 
 Route::get('carrinho',  ['as' => 'carrinho.show',
 								'uses' => 'CarrinhoController@show']);
+
+Route::get('welcome',  ['as' => 'welcome',
+								'uses' => 'HomeController@welcome']);
+
+

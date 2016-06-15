@@ -20,8 +20,9 @@ class ClienteController extends Controller {
 	{
 
 		$nome = '%'.$request->input('nome','').'%';
+		$nif = '%'.$request->input('nif','').'%';
 
-		$clientes = cliente::where('nome', 'like', $nome)->orderBy('id', 'asc')->paginate(40);
+		$clientes = cliente::where('nome', 'like', $nome)->Where('nif', 'like', $nif)->orderBy('id', 'asc')->paginate(40);
 		return view('cliente.index', compact('clientes'));
 		
 	}

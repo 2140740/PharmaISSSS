@@ -27,12 +27,16 @@
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
+                        
+                        <th></th>
+                        <th></th>
                         <th></th>
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Nome Genérico</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
+                        <th></th>
                         <th></th>
                             <th></th>
                         </tr>
@@ -41,12 +45,16 @@
                     <tbody>
                         @foreach($medicamentos as $medicamento)
                             <tr>
-                            <td></td>
+                            <td><td><a class="btn btn-md btn-danger" href="{{ route('carrinho.remove', $medicamento->id) }}">x</a></td></td>
+                             <td></td>
                                 <td>{{$medicamento->id}}</td>
                                 <td>{{$medicamento->nome}}</td>
                                 <td>{{$medicamento->nome_generico}}</td>
                     <td>{{$medicamento->preco}}</td>
-                    
+                    <td>{{$medicamento->qtd}}</td>
+                    <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">+</a></td>
+                    <td><a class="btn btn-md btn-warning" href="{{ route('carrinho.dec', $medicamento->id) }}">-</a></td>
+
                     <td>
 
                     <td></td>
@@ -54,6 +62,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <hr>
+                <td><a class="btn btn-md btn-danger" href="{{ route('carrinho.clean')}}">Limpar Carrinho</a></td>
+                <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">Confirmar Venda</a></td>
             @else
                 <h3 class="text-center alert alert-info">Empty!</h3>
             @endif

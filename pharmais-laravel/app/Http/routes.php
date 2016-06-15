@@ -15,13 +15,15 @@ Route::get('test', function () {
   return 'Testing a route';
 });
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('');
 
 Route::get('medicamentos', ['as' => 'medicamentos.index',
 								'uses' => 'medicamentoController@index']);
@@ -33,6 +35,15 @@ Route::get('users', ['as' => 'users.index',
 
 Route::get('addcarrinho/{id}',  ['as' => 'carrinho.add',
 								'uses' => 'CarrinhoController@addtocarrinho']);
+
+Route::get('cleancarrinho',  ['as' => 'carrinho.clean',
+								'uses' => 'CarrinhoController@limparCarrinho']);
+
+Route::get('decQuantidadeCarrinho/{id}',  ['as' => 'carrinho.dec',
+								'uses' => 'CarrinhoController@decQuantidadeCarrinho']);
+
+Route::get('LimparLinhaCarrinho/{id}',  ['as' => 'carrinho.remove',
+								'uses' => 'CarrinhoController@removerLinhaCarrinho']);
 
 Route::get('carrinho',  ['as' => 'carrinho.show',
 								'uses' => 'CarrinhoController@show']);

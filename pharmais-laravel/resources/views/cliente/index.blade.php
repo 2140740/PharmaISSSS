@@ -22,8 +22,11 @@
                         <div class="row">
         <div class="col-md-12">
                  <form>
-        <label>Pesquisar:</label>
+        <label>Pesquisar por Nome:</label>
         <input type="text" id="idNome" name="nome" value="" class="form-control">
+        <br>
+        <label>Pesquisar por NIF:</label>
+        <input type="text" id="idNif" name="nif" value="" class="form-control">
         <br>
         <input type="submit" id="idSubmit" value="Pesquisar" class="btn btn-primary">
         </form>

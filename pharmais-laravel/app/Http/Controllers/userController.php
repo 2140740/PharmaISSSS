@@ -19,4 +19,31 @@ class userController extends Controller
 		return view('user.index', compact('users'));
 
 	}
+
+	
+
+    public function alterarEstado($id)
+	{
+		$user = user::findOrFail($id);
+
+		return view('user.edit', compact('user'));
+	}
+
+
+
+	public function update(Request $request, $id)
+	{
+		//var_dump($request->all());
+		//exit;
+
+		$user = user::findOrFail($id);
+
+		$user->active = $request->input("active");
+       
+		$user->save();
+
+		return redirect()->route('users.index')->with('message', 'Item updated successfully.');
+	}
+
+
 }

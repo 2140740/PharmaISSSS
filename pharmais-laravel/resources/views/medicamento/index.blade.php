@@ -52,7 +52,10 @@
                                 <td>{{$medicamento->nome_generico}}</td>
                     <td>{{$medicamento->preco}}</td>
                     <td class="text-center">
+                    @if (Auth::guest())
+                    @else
                                     <a class="btn btn-xs btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">Adicionar ao Carrinho</a></td>
+                                    @endif
                     <td></td>
                             </tr>
                         @endforeach

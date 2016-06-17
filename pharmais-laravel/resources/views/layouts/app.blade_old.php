@@ -54,23 +54,14 @@
                     <li><a href="{{ url('/medicamentos') }}">Medicamentos</a></li>
                 </ul>
 
-               @if (Auth::user() && Auth::user()->isFunc())
+
                    <ul class="nav navbar-nav">
                     <li><a href="{{ url('/clientes') }}">Clientes</a></li>
                 </ul>
-                @endif    
 
-                @if (Auth::user() && Auth::user()->isAdmin())
-                  <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/users') }}">Utilizadores</a></li>
-                </ul>
-                @endif
-
-                @if (Auth::user() && Auth::user()->isFunc())
                     <ul class="nav navbar-nav">
                     <li><a href="{{ url('/carrinho') }}">Carrinho</a></li>
                 </ul>
-                @endif
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -85,13 +76,11 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-     <li><a href="{{ url('/logout') }}">  <i class="fa fa-btn fa-sign-out">
-         
-     </i>Logout</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
 
 
-
+                            
                         </li>
                     @endif
                 </ul>
@@ -105,13 +94,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-  
-
 </body>
-<footer>
-    <div align="center">
-      <hr>
-    David Santos 2140740; Samuel Lavos 2141072; Ruben Antunes 2140819
-    </div>
-    </footer>
 </html>

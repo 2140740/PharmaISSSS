@@ -50,7 +50,12 @@
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->type}}</td>
                                 <td>{{$user->active}}</td>
-                    <td></td>
+
+
+                           <td class="text-center">
+            <a class="btn btn-xs btn-danger" href="{{ route('user.edit', $user->id) }}"> Alterar Estado </a>
+        </td>
+                 
                             </tr>
                         @endforeach
                     </tbody>

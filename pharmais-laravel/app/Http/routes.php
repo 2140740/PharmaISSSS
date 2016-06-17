@@ -21,15 +21,9 @@ Route::get('/', function () {
 
 Route::auth();
 
-//Route::get('/home', 'HomeController@index');
-
-
-
 Route::get('home',  ['as' => 'home.login',
 								'uses' => 'HomeController@index']);
-
 Route::post('auth/login', 'Auth\AuthController@postLogin');
-
 
 Route::get('');
 
@@ -37,6 +31,9 @@ Route::get('medicamentos', ['as' => 'medicamentos.index',
 								'uses' => 'medicamentoController@index']);
 
 Route::resource('clientes','clienteController');
+
+Route::resource('users','userController');
+
 
 Route::get('users', ['as' => 'users.index',
 								'uses' => 'userController@index']);
@@ -53,10 +50,23 @@ Route::get('decQuantidadeCarrinho/{id}',  ['as' => 'carrinho.dec',
 Route::get('LimparLinhaCarrinho/{id}',  ['as' => 'carrinho.remove',
 								'uses' => 'CarrinhoController@removerLinhaCarrinho']);
 
+
+Route::get('alterarEstado/{id}',  ['as' => 'user.edit',
+								'uses' => 'userController@alterarEstado']);
+
 Route::get('carrinho',  ['as' => 'carrinho.show',
 								'uses' => 'CarrinhoController@show']);
 
 Route::get('welcome',  ['as' => 'welcome',
 								'uses' => 'HomeController@welcome']);
+
+
+ Route::get('/logout', function()
+    {
+        Auth::logout();
+    Session::flush();
+        return Redirect::to('/home');
+    });
+
 
 

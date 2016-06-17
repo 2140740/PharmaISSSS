@@ -19,14 +19,6 @@ class HomeController extends Controller
         //return redirect()->route('welcome.index');
     }
 
-   // public function welcome()
-    //{
-      //  $this->middleware('auth');
-        //return redirect()->route('/welcome');
-    //}
-
-
-
     /**
      * Show the application dashboard.
      *
@@ -35,5 +27,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+
+     public function welcome()
+    {
+        return view('welcome');
     }
 }

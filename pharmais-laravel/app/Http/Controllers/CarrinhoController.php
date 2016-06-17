@@ -67,7 +67,7 @@ class CarrinhoController extends Controller
     return redirect()->back();
     }
 
-  
+   
 }
 
 

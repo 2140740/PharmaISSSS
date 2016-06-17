@@ -68,7 +68,8 @@
 
 <table>
     <tbody>
-        <th> Total : </th> 
+
+        <th> Total : <?php $total=Carrinho::calculaTotal() ?> </th> 
     </tbody>
 </table>
                 <hr>

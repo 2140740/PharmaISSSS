@@ -2,7 +2,9 @@
 
 namespace App;
 
-class Carrinho
+
+
+class Carrinho 
 {
     public static function ConvertToFullArray($arraysimples){
         $medicamentos = Medicamento::whereIn('id', array_keys($arraysimples))
@@ -13,7 +15,7 @@ class Carrinho
         return $medicamentos;
     }
 
-      function calculaTotal(Request $request){
+     public static function calculaTotal(Request $request){
         $medicamentos= $request->session()->get('cart', []);
         $total=0;
         foreach ($medicamentos as $medicamento) {
@@ -21,6 +23,6 @@ class Carrinho
                 $total=$total +$medicamento->preco * $medicamento->qtd;
 
         }return $total;
-    }
+    }  
 
 }

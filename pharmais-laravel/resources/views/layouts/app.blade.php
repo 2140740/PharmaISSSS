@@ -50,6 +50,19 @@
                     <li><a href="{{ url('/home') }}">Home</a></li>
                 </ul>
 
+                   <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/medicamentos') }}">Medicamentos</a></li>
+                </ul>
+
+
+                   <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/clientes') }}">Clientes</a></li>
+                </ul>
+
+                    <ul class="nav navbar-nav">
+                    <li><a href="{{ url('/carrinho') }}">Carrinho</a></li>
+                </ul>
+
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->

@@ -36,6 +36,7 @@
                         <th>Nome Genérico</th>
                         <th>Preço</th>
                         <th>Quantidade</th>
+                        <th>Subtotal</th>
                         <th></th>
                         <th></th>
                             <th></th>
@@ -52,16 +53,24 @@
                                 <td>{{$medicamento->nome_generico}}</td>
                     <td>{{$medicamento->preco}}</td>
                     <td>{{$medicamento->qtd}}</td>
+                    <td>{{$subtotal=$medicamento->preco * $medicamento->qtd}}</td>
                     <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">+</a></td>
                     <td><a class="btn btn-md btn-warning" href="{{ route('carrinho.dec', $medicamento->id) }}">-</a></td>
-
+                    
                     <td>
 
                     <td></td>
+                    
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
+<table>
+    <tbody>
+        <th> Total : </th> 
+    </tbody>
+</table>
                 <hr>
                 <td><a class="btn btn-md btn-danger" href="{{ route('carrinho.clean')}}">Limpar Carrinho</a></td>
                 <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">Confirmar Venda</a></td>

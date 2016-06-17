@@ -12,11 +12,20 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+   public function __construct()
+   {
         $this->middleware('auth');
-        return redirect()->route('welcome.index')
+        
+        //return redirect()->route('welcome.index');
     }
+
+   // public function welcome()
+    //{
+      //  $this->middleware('auth');
+        //return redirect()->route('/welcome');
+    //}
+
+
 
     /**
      * Show the application dashboard.

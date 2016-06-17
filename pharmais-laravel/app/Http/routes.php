@@ -28,6 +28,8 @@ Route::auth();
 Route::get('home',  ['as' => 'home.login',
 								'uses' => 'HomeController@index']);
 
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+
 
 Route::get('');
 

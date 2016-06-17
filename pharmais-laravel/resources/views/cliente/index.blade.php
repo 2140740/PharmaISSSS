@@ -65,6 +65,8 @@
                                         <button type="submit" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</button>
                                     </form>
                                 </td>
+                               <td class="text-center">
+                                    <a class="btn btn-xs btn-success" href="{{ route('carrinho.add', $cliente->id) }}"> Associar </a></td>
                             </tr>
                         @endforeach
                     </tbody>

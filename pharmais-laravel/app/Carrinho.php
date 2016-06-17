@@ -13,4 +13,14 @@ class Carrinho
         return $medicamentos;
     }
 
+      function calculaTotal(Request $request){
+        $medicamentos= $request->session()->get('cart', []);
+        $total=0;
+        foreach ($medicamentos as $medicamento) {
+            
+                $total=$total +$medicamento->preco * $medicamento->qtd;
+
+        }return $total;
+    }
+
 }

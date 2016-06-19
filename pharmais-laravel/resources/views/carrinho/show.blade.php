@@ -1,3 +1,5 @@
+@if(Auth::user() && Auth::user()->isFunc())
+
 @extends('layouts.app')
 
 @section('header')
@@ -56,7 +58,7 @@
                     <td>{{$subtotal=$medicamento->preco * $medicamento->qtd}}</td>
                     <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">+</a></td>
                     <td><a class="btn btn-md btn-warning" href="{{ route('carrinho.dec', $medicamento->id) }}">-</a></td>
-                    
+
                     <td>
 
                     <td></td>
@@ -69,14 +71,14 @@
 <table>
     <tbody>
 
-        <th> Total : <?php $total=Carrinho::calculaTotal() ?> </th> 
+        <th> Total : {{$total=App\Carrinho::calculaTotal($medicamentos)}} </th> 
     </tbody>
 </table>
                 <hr>
                 <td><a class="btn btn-md btn-danger" href="{{ route('carrinho.clean')}}">Limpar Carrinho</a></td>
                 <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">Confirmar Venda</a></td>
             @else
-                <h3 class="text-center alert alert-info">Empty!</h3>
+                <h3 class="text-center alert alert-info">Carrinho Vazio!</h3>
             @endif
 
         </div>
@@ -87,3 +89,21 @@
     </div>
 </div>
 @endsection
+
+     @else
+    @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Erro</div>
+                    
+                <div class="panel-body">
+                    Erro não fez login no Sistema, ou não tem permissões para acessar à página.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+    @endif

@@ -45,8 +45,7 @@ class ClienteController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		//var_dump($ 	request->all());
-		//exit;
+
 
 		$validator = Validator::make($request->all(),
 		['sexo' => 'required|max:1', 'nome' => 'required']);
@@ -54,6 +53,8 @@ class ClienteController extends Controller {
 		$cliente = new cliente();
 
 		$cliente->nome = $request->input("nome");
+	    var_dump($cliente->nome);
+		exit;
         $cliente->data_nascimento = $request->input("data_nascimento");
         $cliente->telemovel = $request->input("telemovel");
         $cliente->sexo = $request->input("sexo");

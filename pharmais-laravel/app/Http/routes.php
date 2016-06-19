@@ -19,13 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('welcome', function () {
+    return view('welcome');
+});
+
 Route::auth();
 
 Route::get('home',  ['as' => 'home.login',
 								'uses' => 'HomeController@index']);
-Route::post('auth/login', 'Auth\AuthController@postLogin');
 
-Route::get('');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
 
 Route::get('medicamentos', ['as' => 'medicamentos.index',
 								'uses' => 'medicamentoController@index']);
@@ -56,10 +59,6 @@ Route::get('alterarEstado/{id}',  ['as' => 'user.edit',
 
 Route::get('carrinho',  ['as' => 'carrinho.show',
 								'uses' => 'CarrinhoController@show']);
-
-Route::get('welcome',  ['as' => 'welcome',
-								'uses' => 'HomeController@welcome']);
-
 
  Route::get('/logout', function()
     {

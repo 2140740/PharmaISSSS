@@ -1,3 +1,4 @@
+@if(Auth::user() && Auth::user()->isFunc())
 @extends('layouts.app')
 
 @section('header')
@@ -23,7 +24,6 @@
         <div>
             <form action="{{ route('clientes.store') }}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                
 
                  <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
                        <label for="nome-field">Nome</label>
@@ -85,3 +85,20 @@
     </div>
 </div>
 @endsection
+ @else
+    @section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Erro</div>
+                    
+                <div class="panel-body">
+                    Erro não fez login no Sistema, ou não tem permissões para acessar à página.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+    @endif

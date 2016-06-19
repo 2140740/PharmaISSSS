@@ -2,8 +2,6 @@
 
 namespace App;
 
-
-
 class Carrinho 
 {
     public static function ConvertToFullArray($arraysimples){
@@ -15,14 +13,13 @@ class Carrinho
         return $medicamentos;
     }
 
-     public static function calculaTotal(Request $request){
-        $medicamentos= $request->session()->get('cart', []);
+     public static function calculaTotal($medicamentos){
         $total=0;
         foreach ($medicamentos as $medicamento) {
             
                 $total=$total +$medicamento->preco * $medicamento->qtd;
 
-        }return $total;
+        }
+        return $total;
     }  
-
 }

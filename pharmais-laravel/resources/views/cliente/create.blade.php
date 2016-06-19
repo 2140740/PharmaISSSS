@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group{{ $errors->has('data_nascimento') ? ' has-error' : '' }}">
                        <label for="data_nascimento-field">Data_nascimento</label>
-                    <input type="text" id="data_nascimento-field" name="data_nascimento" class="form-control" value="{{ old('mdata_nascimento') }}"/>
+                    <input type="text" id="data_nascimento-field" name="data_nascimento" class="form-control" value="{{ old('data_nascimento') }}"/>
 
                        @if($errors->has('data_nascimento'))
                         <span class="help-block">{{ $errors->first('data_nascimento') }}</span>

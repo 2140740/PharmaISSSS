@@ -46,15 +46,16 @@ class ClienteController extends Controller {
 	public function store(Request $request)
 	{
 
-
-		$validator = Validator::make($request->all(),
-		['sexo' => 'required|max:1', 'nome' => 'required']);
+		$this->validate($request, [
+    	'nome' => 'required',
+    	'data_nascimento' => 'required|date_format:"Y-m-d"',
+    	'telemovel' => array('regex:/^\d{9}+$/'),
+    	'sexo' => 'required|max:1',
+    	'nif' => array('unique:cliente,nif', 'regex:/^\d{9}+$/')]);
 
 		$cliente = new cliente();
 
 		$cliente->nome = $request->input("nome");
-	    var_dump($cliente->nome);
-		exit;
         $cliente->data_nascimento = $request->input("data_nascimento");
         $cliente->telemovel = $request->input("telemovel");
         $cliente->sexo = $request->input("sexo");

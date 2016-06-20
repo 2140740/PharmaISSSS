@@ -107,6 +107,12 @@ class ClienteController extends Controller {
 	{
 		//var_dump($request->all());
 		//exit;
+		$this->validate($request, [
+    	'nome' => 'required',
+    	'data_nascimento' => 'required|date_format:"Y-m-d"',
+    	'telemovel' => array('regex:/^\d{9}+$/'),
+    	'sexo' => 'required|max:1',
+    	'nif' => array('regex:/^\d{9}+$/')]);
 
 		$cliente = cliente::findOrFail($id);
 
@@ -134,5 +140,6 @@ class ClienteController extends Controller {
 
 		return redirect()->route('clientes.index')->with('message', 'Item deleted successfully.');
 	}
+
 
 }

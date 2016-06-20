@@ -76,7 +76,7 @@
             </td>
                               
          <td class="text-center">
-            <a class="btn btn-xs btn-success" href="{{ route('carrinho.add', $cliente->id) }}"> Associar </a>
+            <a class="btn btn-xs btn-success" href="{{ route('CarrinhoController.assocCliente', $cliente->id) }}"> Associar </a>
         </td>
 
                            

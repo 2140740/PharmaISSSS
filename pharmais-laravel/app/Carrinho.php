@@ -21,5 +21,5 @@ class Carrinho
 
         }
         return $total;
-    }  
+    } 
 }

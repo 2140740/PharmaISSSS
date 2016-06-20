@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Medicamento;
 
+use App\Cliente;
+
 use App\Carrinho;
 
 class CarrinhoController extends Controller
@@ -25,6 +27,7 @@ class CarrinhoController extends Controller
     public function show(Request $request){
     	//$cart = $request->session()->get('cart', []);
     	$medicamentos = Carrinho::ConvertToFullArray($request->session()->get('cart', []));
+
     	/*$medicamentos = Medicamento::whereIn('id', array_keys($cart))
                     ->get();
                     foreach($medicamentos as $linha){
@@ -67,7 +70,10 @@ class CarrinhoController extends Controller
     return redirect()->back();
     }
 
-   
-}
-
-
+    public function assocCliente(Request $request, $id) {
+        $clientes = cliente::findOrFail($id);
+        $cart2 = $clientes->id;
+        $request->session()->put('clientes', $cart2);
+        return redirect()->back()->with('message', 'Item created successfully.');
+    }
+}  

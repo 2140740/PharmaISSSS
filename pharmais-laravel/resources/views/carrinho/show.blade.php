@@ -56,6 +56,7 @@
                     <td>{{$medicamento->preco}}</td>
                     <td>{{$medicamento->qtd}}</td>
                     <td>{{$subtotal=$medicamento->preco * $medicamento->qtd}}</td>
+                    
                     <td><a class="btn btn-md btn-success" href="{{ route('carrinho.add', $medicamento->id) }}">+</a></td>
                     <td><a class="btn btn-md btn-warning" href="{{ route('carrinho.dec', $medicamento->id) }}">-</a></td>
 

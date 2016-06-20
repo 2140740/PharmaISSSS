@@ -60,6 +60,9 @@ Route::get('alterarEstado/{id}',  ['as' => 'user.edit',
 Route::get('carrinho',  ['as' => 'carrinho.show',
 								'uses' => 'CarrinhoController@show']);
 
+Route::get('assocCliente/{id}',  ['as' => 'CarrinhoController.assocCliente',
+								'uses' => 'CarrinhoController@assocCliente']);
+
  Route::get('/logout', function()
     {
         Auth::logout();
